@@ -1,0 +1,27 @@
+$ curl localhost:3000/
+This is an API about vegetables.
+With examples about how to get them.
+
+
+$ curl localhost:3000/vegetables
+[
+{
+    "name": "eggplant",
+    "color": "purple"
+},
+{
+    "name": "broccoli",
+    "color": "green"
+}
+]
+
+
+$ curl localhost:3000/vegetables/carrot
+{
+"name": "eggplant",
+"color": "purple"
+}
+
+
+$ curl localhost:3000/typo
+Cannot GET /typo
