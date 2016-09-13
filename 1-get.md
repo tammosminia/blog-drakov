@@ -23,7 +23,7 @@ With examples about how to get them.
     }
 ]
 
-## Vegetables [/vegetables/{name}]
+## one vegetable [/vegetables/{name}]
 ### Get one vegetable [GET]
 + Response 200 (application/json)
 {

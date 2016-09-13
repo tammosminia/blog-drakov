@@ -1,0 +1,39 @@
+Shows a list (of one object) with the example object.
+$ curl localhost:3000/vegetables
+[
+  {
+    "name": "eggplant",
+    "color": "purple"
+  }
+]
+
+
+Shows the example object
+$ curl localhost:3000/vegetables/carrot
+{
+  "name": "eggplant",
+  "color": "purple"
+}
+
+
+The input will need to be a correct JSON object
+$ curl -X POST localhost:3000/vegetables -d '{"name": "eggplant", "color": "purple"}'
+Cannot POST /vegetables
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"name": eggplant, "color": "purple"}'
+Cannot POST /vegetables
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '[]'
+Cannot POST /vegetables
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '"bla"'
+Cannot POST /vegetables
+
+
+Now it will fail on a JSON object that is not to our specifications
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"bla": "bla"}'
+Cannot POST /vegetables
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"name": "eggplant", "color": 2}'
+Cannot POST /vegetables
+
+
+It will work with a correct JSON object (returning http code 201)
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"name": "eggplant", "color": "purple"}'
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"name": "pepper"}'

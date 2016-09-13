@@ -1,12 +1,12 @@
 FORMAT: 1A
 
 # Vegetable API stub
-vegetables!
+data structures
 
 ## Data Structures
 ### Vegetable
-+ name: eggplant (required)
-+ color (string, required)
++ name: eggplant (string, required)
++ color: purple (string)
 
 ## Vegetables [/vegetables]
 ### Get all vegetables [GET]
@@ -17,4 +17,9 @@ vegetables!
 + Request (application/json)
   + Attributes (Vegetable)
 + Response 201
+
+## one vegetable [/vegetables/{name}]
+### Get one vegetable [GET]
++ Response 200 (application/json)
+  + Attributes (Vegetable)
 
