@@ -1,7 +1,7 @@
 # blog-drakov
 
-Examples for running an API stub with drakov.
-https://github.com/Aconex/drakov
+Examples for running an API stub with drakov (https://github.com/Aconex/drakov).
+
 
 Install drakov:
 $ sudo npm install -g drakov
