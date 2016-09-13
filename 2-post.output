@@ -1,0 +1,17 @@
+We say it needs to be JSON, so will not work without the Content-Type header
+$ curl -X POST localhost:3000/vegetables -d '{"name": "eggplant", "color": "purple"}'
+Cannot POST /vegetables
+
+It will also not work with incorrect JSON (no quotes around eggplant)
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"name": eggplant, "color": "purple"}'
+Cannot POST /vegetables
+
+It will also not work with JSON that is not an object
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '[]'
+Cannot POST /vegetables
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '"bla"'
+Cannot POST /vegetables
+
+It will work with any correct JSON object (returning http code 201)
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"name": "eggplant", "color": "purple"}'
+$ curl -X POST localhost:3000/vegetables -H "Content-Type: application/json" -d '{"bla": "bla"}'
